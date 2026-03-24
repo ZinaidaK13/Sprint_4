@@ -1,9 +1,6 @@
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
 import pages.MainPage;
 import static org.junit.Assert.assertTrue;
 import java.util.Arrays;
@@ -11,7 +8,7 @@ import java.util.Collection;
 
 
 @RunWith(Parameterized.class)
-public class myTest extends BaseUITest {
+public class MyTest extends BaseUITest {
     @Parameterized.Parameter(0) public int index;
     @Parameterized.Parameter(1) public String expectedText;
 
@@ -29,7 +26,7 @@ public class myTest extends BaseUITest {
         });
     }
     @Test
-    public void openText() {
+    public void testClickArrowOpensCorrespondingText() {
         MainPage Page = new MainPage(driver);
         Page.openPage();
         Page.clickCookie();

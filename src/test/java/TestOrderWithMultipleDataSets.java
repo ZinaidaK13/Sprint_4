@@ -1,18 +1,13 @@
-import org.junit.Ignore;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
 import pages.MainPage;
 import pages.OrderPage;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static pages.MainPage.buttonOrderDown;
 import static pages.OrderPage.*;
 
 
-public class OrderButtonTest extends BaseUITest {
+public class TestOrderWithMultipleDataSets extends BaseUITest {
     @Test
     public void openButtonDawn() {
         MainPage Page = new MainPage(driver);
@@ -23,7 +18,6 @@ public class OrderButtonTest extends BaseUITest {
         String actualText = driver.findElement(headerLocator).getText();
         String expectedText = "Для кого самокат";
         assertEquals("Заголовок не совпадает", expectedText, actualText);
-
 
     }
 
@@ -47,7 +41,6 @@ public class OrderButtonTest extends BaseUITest {
         orderPage.clickButtonYes();
 
         String actualText = driver.findElement(windowOrder).getText();
-        //System.out.println(actualText);
         String expectedText = "Заказ оформлен\n" +
                 "Номер заказа: .  Запишите его:\n" +
                 "пригодится, чтобы отслеживать статус";

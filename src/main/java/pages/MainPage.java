@@ -9,7 +9,8 @@ import java.time.Duration;
 public class MainPage {
     WebDriver driver;
     By cookie =By.className("App_CookieButton__3cvqF");
-    public By[] questions = {
+    private static final String baseURL="https://qa-scooter.praktikum-services.ru";
+    private By[] questions = {
             By.id("accordion__heading-0"),
             By.id("accordion__heading-1"),
             By.id("accordion__heading-2"),
@@ -19,7 +20,7 @@ public class MainPage {
             By.id("accordion__heading-6"),
             By.id("accordion__heading-7")
     };
-    public By[] answers = {
+    private By[] answers = {
             By.id("accordion__panel-0"),
             By.id("accordion__panel-1"),
             By.id("accordion__panel-2"),
@@ -29,13 +30,16 @@ public class MainPage {
             By.id("accordion__panel-6"),
             By.id("accordion__panel-7")
     };
+    public static By buttonOrderTop = By.className("Button_Button__ra12g");
+    public static By buttonOrderDown = By.xpath("//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
     }
 
+
     public void openPage() {
-        driver.get("https://qa-scooter.praktikum-services.ru");
+        driver.get(baseURL);
     }
 
     public void clickCookie() {
@@ -49,8 +53,7 @@ public class MainPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(answers[index]));
         return driver.findElement(answers[index]).getText();
     }
-    public static By buttonOrderTop = By.className("Button_Button__ra12g");
-    public static By buttonOrderDown = By.xpath("//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
+
 
     public void clickButtonDown(){
         driver.findElement(buttonOrderDown).click();

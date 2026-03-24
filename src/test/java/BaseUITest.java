@@ -25,12 +25,14 @@ public class BaseUITest {
     public void startBrowserChrome(){
         driver = new ChromeDriver();
         WebDriverManager.chromedriver().setup();
+        driver.manage().window().maximize();
         mainPage = new MainPage(driver);
         orderPage = new OrderPage(driver);
     }
     public void startBrowserFirefox(){
         driver =new FirefoxDriver();
         WebDriverManager.firefoxdriver().setup();
+        driver.manage().window().maximize();
         mainPage = new MainPage(driver);
         orderPage = new OrderPage(driver);
     }

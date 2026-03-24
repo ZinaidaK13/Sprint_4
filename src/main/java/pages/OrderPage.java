@@ -27,6 +27,7 @@ public class OrderPage {
     public static By buttonOrder= By.xpath("//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and text()='Заказать']");
     public static By buttonYes= By.xpath("//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and text()='Да']");
     public static By windowOrder =By.className("Order_ModalHeader__3FDaJ");
+    public static By metroStation =By.xpath("//*[contains(text(), 'Рокоссовского')]");
 
     public OrderPage(WebDriver driver) {
         this.driver = driver;
@@ -48,7 +49,7 @@ public class OrderPage {
     public void selectMetro(){
         driver.findElement(inputMetro).click();
         new WebDriverWait(driver,  Duration.ofSeconds (3));
-        driver.findElement(By.xpath("//*[contains(text(), 'Рокоссовского')]")).click();
+        driver.findElement(metroStation).click();
     }
 
     public void clickButtonNext(){
