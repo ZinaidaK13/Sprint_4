@@ -9,7 +9,7 @@ import java.time.Duration;
 public class MainPage {
     WebDriver driver;
     By cookie =By.className("App_CookieButton__3cvqF");
-    private static final String baseURL="https://qa-scooter.praktikum-services.ru";
+    private static final String BASEURL="https://qa-scooter.praktikum-services.ru";
     private By[] questions = {
             By.id("accordion__heading-0"),
             By.id("accordion__heading-1"),
@@ -30,16 +30,15 @@ public class MainPage {
             By.id("accordion__panel-6"),
             By.id("accordion__panel-7")
     };
-    public static By buttonOrderTop = By.className("Button_Button__ra12g");
-    public static By buttonOrderDown = By.xpath("//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
+    private static By buttonOrderTop = By.className("Button_Button__ra12g");
+    private static By buttonOrderDown = By.xpath("//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
     }
 
-
     public void openPage() {
-        driver.get(baseURL);
+        driver.get(BASEURL);
     }
 
     public void clickCookie() {
@@ -53,7 +52,6 @@ public class MainPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(answers[index]));
         return driver.findElement(answers[index]).getText();
     }
-
 
     public void clickButtonDown(){
         driver.findElement(buttonOrderDown).click();
